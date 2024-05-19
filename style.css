@@ -46,6 +46,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    justify-content: space-evenly;
 
     .main_section__container {
         align-content:center ;
