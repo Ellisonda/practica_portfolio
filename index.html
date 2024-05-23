@@ -23,9 +23,13 @@
     </header>
 
     <main class="main_container">
+        <video autoplay muted loop id="myVideo">
+            <source src="/img/4K_16.mp4" type="video/mp4">
+          </video>
         <section class="main_section">
             <div id="container" class="main_section__container">
-                <h1>Hi, I'm <span class="main_name">Javier</span> and I love <span class="main_word">web development</span>. Welcome to my place.</h1>
+                
+                <h1>Hi, I'm   <span class="main_name">Javier</span> and I love <span class="main_word">web development.</span> Welcome to my place.</h1>
             </div>   
         </section>
 
@@ -40,11 +44,39 @@
         <section class="skills_section" id="skills">
             <div class="skills_container">
                 <h1 >My main tools :</h1>
-            <ul class="skill_list">
+                <div class="skill_group__container">
+                    <div class="skill_group">
+                        <h2>Visual</h2>
+                        <ul class="skill_list">
+                            <li class="skill_item">HTML</li>
+                            <li class="skill_item">CSS</li>
+                            <li class="skill_item">JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill_group frameworks">
+                        <h2>Frameworks</h2>
+                        <ul class="skill_list frameworks">
+                            <li class="skill_item">React</li>
+                            <li class="skill_item">Sass</li>
+                            <li class="skill_item">Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill_group">
+                        <h2>Backend</h2>
+                        <ul class="skill_list">
+                            <li class="skill_item">Node.js</li>
+                            <li class="skill_item">MySQL</li>
+                            <li class="skill_item">MongoDB</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+            <!-- <ul class="skill_list">
                 <li class="skill_item">For the visual <span>HTML & CSS</span>, and for the magic <span>JavaScript.</span></li>
                 <li class="skill_item">The framsworks i'm currently using are <span>React</span>  and <span>Sass</span></li>
                 <li class="skill_item">For backend <span>Node.js</span> and for databases <span>MongoDB & MySQL</span></li>
-            </ul>
+            </ul> -->
             </div>
             
         </section>
@@ -55,7 +87,7 @@
                     <h2>Get in touch</h2>
                 </div>
                 <div class="contact_description">
-                    <h2>If you want to contact me, here you got my <span>email : </span><a>jamarinweb@gmail.com</a></h3>
+                    <h2>If you want to contact me, here you got my <span>email : </span><a class="mailto" href="mailto:jamarinweb@gmail.com">jamarinweb@gmail.com</a></h3>
                     <div class="social_links">
                         <a href="https://www.linkedin.com/in/javier-mar%C3%ADn-almagro/">Linkedin</a>
                         <a href="https://github.com/Ellisonda">Github</a>

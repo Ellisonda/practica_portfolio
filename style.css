@@ -2,6 +2,7 @@
 
 :root {
   --color-background-dark: #050027;
+  
   --color-background-blue: #0f4c75;
   --color-background-lightblue: #00b7c2;
   --color-background-light: #fff;
@@ -14,18 +15,11 @@
 }
 
 .body {
-  background: rgb(27, 38, 44);
-  background: linear-gradient(
-    0deg,
-    rgba(27, 38, 44, 1) 0%,
-    rgba(5, 0, 39, 1) 2%,
-    rgba(15, 76, 117, 1) 90%,
-    rgba(0, 183, 194, 1) 100%
-  );
+ 
 }
 
 .header {
-  background-color: var(--color-background-dark);
+  background-color: transparent;
   min-height: 89px;
   width: 100%;
   display: flex;
@@ -33,15 +27,19 @@
   justify-content: flex-end;
   position: sticky;
   top: 0;
+  z-index: 10;
   .main_menu {
     display: flex;
     align-items: center;
-    margin-right: 10%;
+    margin-right: 5%;
   }
   .menu_list {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    border: 1px solid var(--color-background-lightblue);
+    background-color: hsl(248, 100%, 10%, .5);
+    padding-inline: 1rem;
   }
   .menu_items {
     list-style: none;
@@ -53,7 +51,7 @@
       font-weight: 600;
       font-style: normal;
       letter-spacing: 0.2rem;
-      font-size: 2rem;
+      font-size: 1rem;
       color: var(--color-background-lightblue);
       text-decoration: none;
       transition: 0.8s;
@@ -68,46 +66,74 @@
 /* MAIN CONTAINER */
 
 .main_container {
+    
   scroll-snap-type: y mandatory;
-
-  overflow-y: hidden;
+    height: 100%;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  background-color:rgb(0, 184, 194);
+  
+  
+  
+> section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+video {
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+    bottom: 0;
+    min-height: 120%;
+    min-width: 100%;
+    background: rgb(5,0,39);
+background: linear-gradient(180deg, rgba(5,0,39,0) 43%, rgba(9,29,69,0) 80%, rgba(0,183,194,1) 100%);
 
+}
   .main_section {
-    background: rgb(27, 38, 44);
+    /* background: rgb(27, 38, 44);
     background: linear-gradient(
       0deg,
       rgba(27, 38, 44, 1) 0%,
       rgba(5, 0, 39, 1) 0%,
       rgba(15, 76, 117, 1) 90%,
       rgba(0, 183, 194, 1) 100%
-    );
+    ); */
+    /* position: relative; */
+    
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: space-evenly;
-    scroll-snap-align: center;
-
+    /* scroll-snap-align: start;
+    scroll-snap-stop: always; */
+   
     .main_section__container {
       align-content: center;
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      z-index: 1;
+      box-shadow: 0px -45px 10px -15px #00b7c2;
       h1 {
-        font-size: 3rem;
+        font-size: 2rem;
         font-family: "Chakra Petch", sans-serif;
         font-weight: 400;
         font-style: normal;
         color: white;
-        display: inline-block;
+        display: inline-flex;
         white-space: nowrap;
+        align-items: baseline;
+                flex-wrap: wrap;
+                justify-content: center;
         /* border-right: 4px solid; */
         width: 60ch;
         line-break: anywhere;
         animation: typing .5s steps(132);
         overflow: hidden;
+        transform: translateY(-30%);
       }
       .main_name {
         font-family: "Neonderthaw", cursive;
@@ -115,6 +141,7 @@
         font-size: 5rem;
         color: var(--color-background-lightblue);
         animation: neon2 1.5s ease-in-out infinite alternate;
+        padding-inline: 20px;
       }
       .main_word {
         font-family: "Neonderthaw", cursive;
@@ -122,20 +149,26 @@
         color: var(--color-pink);
         font-size: 5rem;
         animation: neon4 1.5s ease-in-out infinite alternate;
+        padding-inline: 20px;
+
       }
     }
   }
 
   .about_section {
-    background-color: var(--color-background-dark);
+    background: rgb(5,0,39);
+    background: linear-gradient(0deg, rgba(5,0,39,1) 51%, rgba(9,29,69,1) 84%, rgba(0,183,194,1) 100%);
     width: 100%;
     height: 100vh;
+    padding-top: -50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
     justify-content: center;
-    scroll-snap-align: center;
+    /* scroll-snap-align: start;
+    scroll-snap-stop: always; */
+
     h1 {
       text-align: start;
       text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff, 0 0 40px #228dff,
@@ -161,8 +194,12 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    padding-left: 10%;
+    
     align-items: center;
+    /* scroll-snap-align: start;
+    scroll-snap-stop: always; */
+    
+        justify-content: center;
     .skills_container {
       display: flex;
       flex-direction: column;
@@ -176,6 +213,37 @@
         font-weight: 400;
         font-size: 5rem;
         color: var(--color-pink);
+      }
+      .skill_group__container {
+        display: flex;
+        flex-direction: row; 
+        width: 100%;
+        border: var(--color-background-lightblue) solid 3px;
+        box-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff,
+          0 0 40px var(--color-background-lightblue),
+          0 0 7px var(--color-background-lightblue),
+          0 0 8px var(--color-background-lightblue),
+          0 0 1px var(--color-background-lightblue),
+          0 0 15px var(--color-background-lightblue);
+        border-radius: 6px;
+        padding: 2rem;
+        
+        h2 {
+            text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff, 0 0 40px var(--color-yellow),
+          0 0 7px var(--color-yellow), 0 0 8px var(--color-yellow), 0 0 1px var(--color-yellow), 0 0 15px var(--color-yellow);
+        font-family: "Chakra Petch", sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 3rem;
+        color: var(--color-yellow);
+        
+        }
+        .skill_group {
+            text-align: center;
+        }
+        .frameworks {
+            background-color: var(--color-background-blue);
+        }
       }
       .skill_list {
         display: flex;
@@ -194,14 +262,7 @@
         line-height: 5rem;
 
         background-color: var(--color-background-dark);
-        border: var(--color-background-lightblue) solid 3px;
-        box-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff,
-          0 0 40px var(--color-background-lightblue),
-          0 0 7px var(--color-background-lightblue),
-          0 0 8px var(--color-background-lightblue),
-          0 0 1px var(--color-background-lightblue),
-          0 0 15px var(--color-background-lightblue);
-        border-radius: 6px;
+        
 
         span {
           text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff,
@@ -219,17 +280,11 @@
         }
       }
     }
+    
   }
 
   .contact_section {
-    background: rgb(27, 38, 44);
-    background: linear-gradient(
-      180deg,
-      rgba(27, 38, 44, 1) 0%,
-      rgba(5, 0, 39, 1) 0%,
-      rgba(15, 76, 117, 1) 90%,
-      rgba(0, 183, 194, 1) 100%
-    );
+    background-color: var(--color-background-dark);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -237,7 +292,9 @@
     align-items: center;
     gap: 2rem;
     justify-content: center;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
     .contact_container {
       display: flex;
       flex-direction: row;
@@ -256,19 +313,30 @@
         color: var(--color-background-lightblue);
       }
       .contact_description {
-        font-size: 1.5rem;
-        font-family: "Chakra Petch", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        color: white;
+        
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        h2 {
+            font-size: 1.5rem;
+            font-family: "Chakra Petch", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            color: white;   
+        }
         span {
             text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff, 0 0 40px #ff008e,
             0 0 7px #ff008e, 0 0 8px #ff008e, 0 0 1px #ff008e, 0 0 15px #ff008e;
             color: var(--color-pink);
+        }
+        .mailto {
+            color: var(--color-background-light);
+            text-decoration: none;
+            
+        }
+        .mailto:hover {
+            color: var(--color-yellow);
         }
       }
       .social_links {
@@ -276,10 +344,11 @@
         letter-spacing: .2rem;
         gap: 3rem;
         align-items: center;
+        
         a {
             text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff, 0 0 40px var(--color-yellow),
             0 0 7px var(--color-yellow), 0 0 8px var(--color-yellow), 0 0 1px var(--color-yellow), 0 0 15px var(--color-yellow);
-          font-family: "Neonderthaw", cursive;
+            font-family: "Chakra Petch", sans-serif;
           font-weight: 400;
           font-size: 2rem;
           text-decoration: none;
@@ -295,12 +364,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #00b7c2;
-    color: var(--color-background-dark);
+    
+    color: var(--color-background-light);
     font-size: 18px;
     font-family: "Chakra Petch", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background: rgb(5,0,39);
+background: linear-gradient(180deg, rgba(5,0,39,1) 43%, rgba(9,29,69,1) 46%, rgba(0,183,194,1) 100%);
     span {
         text-align: start;
         text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 3px #fff, 0 0 40px #ff008e,
